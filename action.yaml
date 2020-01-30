@@ -1,0 +1,23 @@
+name: 'SonarQube Scan'
+description: 'Scan your code with SonarQube Scanner to detect bugs, vulnerabilities and code smells in more than 25 programming languages.'
+author: 'Dwi Siswanto'
+branding:
+  icon: 'check'
+  color: 'green'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+inputs:
+  host:
+    description: 'SonarQube server URL'
+    required: true
+  projectBaseDir:
+    description: 'Set the sonar.projectBaseDir analysis property'
+    required: false
+    default: '.'
+  login:
+    description: 'Login or authentication token of a SonarQube user'
+    required: true
+  password:
+    description: 'Password that goes with the sonar.login username. This should be left blank if an authentication token is being used.'
+    required: false
