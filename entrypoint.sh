@@ -11,7 +11,7 @@ if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
 fi
 
 if [[ -z "${INPUT_PASSWORD}" ]]; then
-	SONAR_PASSWORD="&& true"
+	SONAR_PASSWORD=""
 else
 	SONAR_PASSWORD="${INPUT_PASSWORD}"
 fi
