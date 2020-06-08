@@ -1,6 +1,6 @@
 name: 'SonarQube Scanner'
 description: 'Scan your code with SonarQube Scanner to detect bugs, vulnerabilities and code smells in more than 25 programming languages.'
-author: 'Dwi Siswanto / Marc Berchtold'
+author: 'Dwi Siswanto / Marc Berchtold / Jeffrey Haskovec'
 branding:
   icon: 'check'
   color: 'green'
