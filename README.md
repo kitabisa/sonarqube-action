@@ -30,7 +30,7 @@ jobs:
         login: ${{ secrets.SONARQUBE_TOKEN }}
 ```
 
-You can change the analysis base directory and/ project key _(allowed characters: letters, numbers, -, _, . and :, with at least one non-digit.)_ by using the optional input like this:
+You can change the analysis base directory and/ project key _(allowed characters: letters, numbers, -, \_, . and :, with at least one non-digit.)_ by using the optional input like this:
 
 ```yaml
 uses: kitabisa/sonarqube-action@master
