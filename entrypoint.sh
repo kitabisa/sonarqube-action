@@ -11,10 +11,11 @@ if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
 fi
 
 [[ ! -z ${INPUT_PASSWORD} ]] && SONAR_PASSWORD="${INPUT_PASSWORD}" || SONAR_PASSWORD=""
+[[ -z ${INPUT_PROJECTKEY} ]] && SONAR_PROJECTKEY="${PWD##*/}" || SONAR_PROJECTKEY="${INPUT_PROJECTKEY}"
 
 sonar-scanner \
 	-Dsonar.host.url=${INPUT_HOST} \
-	-Dsonar.projectKey=${PWD##*/} \
+	-Dsonar.projectKey=${SONAR_PROJECTKEY} \
 	-Dsonar.projectBaseDir=${INPUT_PROJECTBASEDIR} \
 	-Dsonar.login=${INPUT_LOGIN} \
 	-Dsonar.password=${INPUT_PASSWORD} \
