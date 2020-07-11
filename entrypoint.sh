@@ -12,10 +12,13 @@ fi
 
 [[ ! -z ${INPUT_PASSWORD} ]] && SONAR_PASSWORD="${INPUT_PASSWORD}" || SONAR_PASSWORD=""
 [[ -z ${INPUT_PROJECTKEY} ]] && SONAR_PROJECTKEY="${PWD##*/}" || SONAR_PROJECTKEY="${INPUT_PROJECTKEY}"
+[[ -z ${INPUT_PROJECTNAME} ]] && SONAR_PROJECTNAME="${PWD##*/}" || SONAR_PROJECTKEY="${INPUT_PROJECTNAME}"
+
 
 sonar-scanner \
 	-Dsonar.host.url=${INPUT_HOST} \
 	-Dsonar.projectKey=${SONAR_PROJECTKEY} \
+	-Dsonar.projectName=${SONAR_PROJECTNAME} \
 	-Dsonar.projectBaseDir=${INPUT_PROJECTBASEDIR} \
 	-Dsonar.login=${INPUT_LOGIN} \
 	-Dsonar.password=${INPUT_PASSWORD} \

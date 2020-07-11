@@ -37,6 +37,7 @@ uses: kitabisa/sonarqube-action@master
 with:
   projectBaseDir: my-custom-directory
   projectKey: my-custom-project
+  projectName: "my-project-name"
 ```
 
 ## Secrets
