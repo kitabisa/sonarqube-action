@@ -15,6 +15,14 @@ inputs:
     description: "The project's unique key. Allowed characters are: letters, numbers, -, _, . and :, with at least one non-digit."
     required: false
     default: ""
+  projectName:
+    description: "Name of the project that will be displayed on the web interface."
+    required: false
+    default: ""
+  projectVersion:
+    description: "The project version."
+    required: false
+    default: ""
   projectBaseDir:
     description: "Set the sonar.projectBaseDir analysis property"
     required: false
