@@ -38,6 +38,7 @@ with:
   projectBaseDir: my-custom-directory
   projectKey: my-custom-project
   projectName: "my-project-name"
+  projectVersion: "my-project-version"
 ```
 
 ## Secrets
