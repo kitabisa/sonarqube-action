@@ -18,11 +18,11 @@ REPOSITORY_NAME=$(basename "${GITHUB_REPOSITORY}")
 [[ -z ${INPUT_PROJECTVERSION} ]] && SONAR_PROJECTVERSION="" || SONAR_PROJECTVERSION="${INPUT_PROJECTVERSION}"
 
 sonar-scanner \
-	-Dsonar.host.url=https://sonarqube.ct.blue.cdtapps.com \
-	-Dsonar.projectKey=ct.gitgubaction \
-	-Dsonar.projectName=CT-GITHUBACTION \
+	-Dsonar.host.url=${URL} \
+	-Dsonar.projectKey= \
+	-Dsonar.projectName= \
 	-Dsonar.projectVersion=1 \
 	-Dsonar.projectBaseDir=${INPUT_PROJECTBASEDIR} \
-	-Dsonar.login=fbc952d13080517e7ddb7ddba537b1f77138e119 \
+	-Dsonar.login= \
 	-Dsonar.sources=. \
 	-Dsonar.sourceEncoding=UTF-8
