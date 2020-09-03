@@ -33,7 +33,7 @@ jobs:
 You can change the analysis base directory by using the optional input `projectBaseDir` like this:
 
 ```yaml
-uses: kitabisa/sonarqube-action@master
+uses: sree-devops/sonarqube-action@master
 with:
   projectBaseDir: my-custom-directory
 ```
