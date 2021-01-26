@@ -2,14 +2,6 @@
 
 set -e
 
-if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
-	EVENT_ACTION=$(jq -r ".action" "${GITHUB_EVENT_PATH}")
-	if [[ "${EVENT_ACTION}" != "opened" ]]; then
-		echo "No need to run analysis. It is already triggered by the push event."
-		exit
-	fi
-fi
-
 REPOSITORY_NAME=$(basename "${GITHUB_REPOSITORY}")
 
 [[ ! -z ${INPUT_PASSWORD} ]] && SONAR_PASSWORD="${INPUT_PASSWORD}" || SONAR_PASSWORD=""
