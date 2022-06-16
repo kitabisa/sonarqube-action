@@ -38,7 +38,7 @@ uses: kitabisa/sonarqube-action@master
 with:
   host: ${{ secrets.SONARQUBE_HOST }}
   login: ${{ secrets.SONARQUBE_TOKEN }}
-  projectBaseDir: "/path/to/my-custom-project"
+  projectBaseDir: "src/"
   projectKey: "my-custom-project"
 ```
 
@@ -55,8 +55,7 @@ These are some of the supported input parameters of action.
 - `projectVersion` - The project version.
 
 > **Note**:
-> This action also supports the **`sonar-project.properties`** configuration file.
-> Please avoid default arguments/properties as [input parameters](#inputs) we use in the action to prevent collisions.
+> If you're thinking of setting project metadata & other related things in a **`sonar-project.properties`** configuration file (must be declared in the base directory _`projectBaseDir`_) instead of going through the [input parameters](#inputs), this action supports that!
 
 ## License
 
