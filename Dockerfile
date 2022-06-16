@@ -10,11 +10,6 @@ LABEL repository="https://github.com/kitabisa/sonarqube-action"
 LABEL homepage="https://kitabisa.github.io"
 LABEL maintainer="dwisiswant0"
 
-
-ENV NODE_PATH "/usr/lib/node_modules/"
-
 COPY entrypoint.sh /entrypoint.sh
-
 RUN chmod +x /entrypoint.sh
-
 ENTRYPOINT ["/entrypoint.sh"]
