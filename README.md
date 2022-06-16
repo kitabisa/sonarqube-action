@@ -8,11 +8,12 @@ SonarQube is an open-source platform developed by SonarSource for continuous ins
 
 ## Requirements
 
-* Have SonarQube on server. [Install now](https://docs.sonarqube.org/latest/setup/install-server/) if it's not already the case!
+* [SonarQube server](https://docs.sonarqube.org/latest/setup/install-server/).
+* That's all!
 
 ## Usage
 
-The workflow, usually declared in `.github/workflows/build.yml`, looks like:
+The workflow, usually declared in `.github/workflows/build.yaml`, looks like:
 
 ```yaml
 on: push
@@ -30,24 +31,32 @@ jobs:
         login: ${{ secrets.SONARQUBE_TOKEN }}
 ```
 
-You can change the analysis base directory and/ project key _(allowed characters: letters, numbers, -, \_, . and :, with at least one non-digit.)_ by using the optional input like this:
+You can change the analysis base directory and/or project key by using the optional input like this:
 
 ```yaml
 uses: kitabisa/sonarqube-action@master
 with:
+  host: ${{ secrets.SONARQUBE_HOST }}
+  login: ${{ secrets.SONARQUBE_TOKEN }}
   projectBaseDir: "/path/to/my-custom-project"
   projectKey: "my-custom-project"
-  projectName: "my-custom-project-name"
-  projectVersion: "v0.0.1"
 ```
 
-## Secrets
+### Inputs
+
+These are some of the supported input parameters of action.
 
 - `host` - **_(Required)_** this is the SonarQube server URL.
 - `login` - **_(Required)_** the login or authentication token of a SonarQube user with Execute Analysis permission on the project. See [how to generate SonarQube token](https://docs.sonarqube.org/latest/user-guide/user-token/).
 - `password` - The password that goes with the `login` username. This should be left blank if an `login` are authentication token.
+- `projectBaseDir` - Set custom project base directory analysis.
+- `projectKey` - The project's unique key _(allowed characters are: letters, numbers, `-`, `_`, `.` and `:`, with at least one non-digit)_.
+- `projectName` - Name of the project that will be displayed on the SonarQube web interface.
+- `projectVersion` - The project version.
 
-You can set all variable in the "Secrets" settings page of your repository.
+> **Note**:
+> This action also supports the **`sonar-project.properties`** configuration file.
+> Please avoid default arguments/properties as [input parameters](#inputs) we use in the action to prevent collisions.
 
 ## License
 
