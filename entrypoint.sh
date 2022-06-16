@@ -28,18 +28,18 @@ if [[ ! -f "${INPUT_PROJECTBASEDIR%/}sonar-project.properties" ]]; then
   [[ -z "${INPUT_PROJECTNAME}" ]] && SONAR_PROJECTNAME="${REPOSITORY_NAME}" || SONAR_PROJECTNAME="${INPUT_PROJECTNAME}"
   [[ -z "${INPUT_PROJECTVERSION}" ]] && SONAR_PROJECTVERSION="" || SONAR_PROJECTVERSION="${INPUT_PROJECTVERSION}"
   sonar-scanner \
-    -Dsonar.host.url=${INPUT_HOST} \
-    -Dsonar.projectKey=${SONAR_PROJECTKEY} \
-    -Dsonar.projectName=${SONAR_PROJECTNAME} \
-    -Dsonar.projectVersion=${SONAR_PROJECTVERSION} \
-    -Dsonar.projectBaseDir=${INPUT_PROJECTBASEDIR} \
-    -Dsonar.login=${INPUT_LOGIN} \
-    -Dsonar.password=${SONAR_PASSWORD} \
-    -Dsonar.sources=. \
-    -Dsonar.sourceEncoding=${INPUT_ENCODING}
+    -Dsonar.host.url="${INPUT_HOST}" \
+    -Dsonar.projectKey="${SONAR_PROJECTKEY}" \
+    -Dsonar.projectName="${SONAR_PROJECTNAME}" \
+    -Dsonar.projectVersion="${SONAR_PROJECTVERSION}" \
+    -Dsonar.projectBaseDir="${INPUT_PROJECTBASEDIR}" \
+    -Dsonar.login="${INPUT_LOGIN}" \
+    -Dsonar.password="${SONAR_PASSWORD}" \
+    -Dsonar.sources="${INPUT_PROJECTBASEDIR}" \
+    -Dsonar.sourceEncoding="${INPUT_ENCODING}"
 else
   sonar-scanner \
-    -Dsonar.host.url=${INPUT_HOST} \
-    -Dsonar.login=${INPUT_LOGIN} \
-    -Dsonar.password=${SONAR_PASSWORD}
+    -Dsonar.host.url="${INPUT_HOST}" \
+    -Dsonar.login="${INPUT_LOGIN}" \
+    -Dsonar.password="${SONAR_PASSWORD}"
 fi
