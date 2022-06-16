@@ -16,14 +16,26 @@ SonarQube is an open-source platform developed by SonarSource for continuous ins
 The workflow, usually declared in `.github/workflows/build.yaml`, looks like:
 
 ```yaml
-on: push
-name: Main Workflow
+on:
+  # Trigger analysis when pushing in master or pull requests, and when creating
+  # a pull request. 
+  push:
+    branches:
+      - master
+  pull_request:
+      types: [opened, synchronize, reopened]
+
+name: SonarQube Scan
 jobs:
-  sonarQubeTrigger:
+  sonarqube:
     name: SonarQube Trigger
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - name: Checking out
+      uses: actions/checkout@master
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
     - name: SonarQube Scan
       uses: kitabisa/sonarqube-action@v1.1.2
       with:
@@ -53,9 +65,10 @@ These are some of the supported input parameters of action.
 - `projectKey` - The project's unique key _(allowed characters are: letters, numbers, `-`, `_`, `.` and `:`, with at least one non-digit)_.
 - `projectName` - Name of the project that will be displayed on the SonarQube web interface.
 - `projectVersion` - The project version.
+- `encoding` - Encoding of the source code. Default is UTF-8.
 
 > **Note**:
-> If you're thinking of setting project metadata & other related things in a **`sonar-project.properties`** configuration file (must be declared in the base directory _`projectBaseDir`_) instead of going through the [input parameters](#inputs), this action supports that!
+> If you're thinking of setting project metadata & other related things in a **`sonar-project.properties`** configuration file _(must be declared in the base directory `projectBaseDir`)_ instead of going through the [input parameters](#inputs), this action supports that!
 
 ## License
 
