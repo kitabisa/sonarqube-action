@@ -2,7 +2,7 @@
 
 Using this GitHub Action, scan your code with SonarQube scanner to detects bugs, vulnerabilities and code smells in more than 20 programming languages!
 
-<img src="https://www.sonarqube.org/assets/logo-31ad3115b1b4b120f3d1efd63e6b13ac9f1f89437f0cf6881cc4d8b5603a52b4.svg" width="320px">
+<img src="https://assets-eu-01.kc-usercontent.com/d1e40bf0-65fc-01ef-5235-9aeaedac229b/12e3974b-220d-4cde-8f17-2ff9fa9d9c27/SonarQube_Logo.svg" width="320px">
 
 SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities on 20+ programming languages.
 
@@ -58,17 +58,20 @@ with:
 
 These are some of the supported input parameters of action.
 
-- `host` - **_(Required)_** this is the SonarQube server URL.
-- `login` - **_(Required)_** the login or authentication token of a SonarQube user with Execute Analysis permission on the project. See [how to generate SonarQube token](https://docs.sonarqube.org/latest/user-guide/user-token/).
-- `password` - The password that goes with the `login` username. This should be left blank if an `login` are authentication token.
-- `projectBaseDir` - Set custom project base directory analysis.
-- `projectKey` - The project's unique key _(allowed characters are: letters, numbers, `-`, `_`, `.` and `:`, with at least one non-digit)_.
-- `projectName` - Name of the project that will be displayed on the SonarQube web interface.
-- `projectVersion` - The project version.
-- `encoding` - Encoding of the source code. Default is UTF-8.
+| **Parameter**        | **Description**                                   | **Required?** | **Default** | **Note**                                                                                      |
+|----------------------|---------------------------------------------------|---------------|-------------|-----------------------------------------------------------------------------------------------|
+| **`host`**           | SonarQube server URL                              | 🟢            |             |                                                                                               |
+| **`login`**          | Login or authentication token of a SonarQube user | 🟢            |             | `Execute Analysis` permission required.                                                       |
+| **`password`**       | The password that goes with the `login` username  | 🔴            |             | This should be left blank if an `login` are authentication token.                             |
+| **`projectBaseDir`** | Set custom project base directory analysis        | 🔴            | `.`         |                                                                                               |
+| **`projectKey`**     | The project's unique key                          | 🔴            |             | Allowed characters are: letters, numbers, `-`, `_`, `.` and `:`, with at least one non-digit. |
+| **`projectName`**    | Name of the project                               | 🔴            |             | It will be displayed on the SonarQube web interface.                                          |
+| **`projectVersion`** | The project version                               | 🔴            |             |                                                                                               |
+| **`encoding`**       | Encoding of the source code                       | 🔴            | `UTF-8`     |                                                                                               |
 
-> **Note**:
-> If you're thinking of setting project metadata & other related things in a **`sonar-project.properties`** configuration file _(must be declared in the base directory `projectBaseDir`)_ instead of going through the [input parameters](#inputs), this action supports that!
+
+> **Note**
+> If you opt to configure the project metadata and other related settings in a **`sonar-project.properties`** file (must be placed within the base directory, `projectBaseDir`) instead of using input parameters, this action is compatible with that approach!
 
 ## License
 
