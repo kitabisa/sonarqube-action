@@ -70,7 +70,7 @@ These are some of the supported input parameters of action.
 | **`encoding`**       | Encoding of the source code                       | 🔴            | `UTF-8`     |                                                                                               |
 
 
-> **Note**
+> [!NOTE]
 > If you opt to configure the project metadata and other related settings in a **`sonar-project.properties`** file (must be placed within the base directory, `projectBaseDir`) instead of using input parameters, this action is compatible with that approach!
 
 ## License
