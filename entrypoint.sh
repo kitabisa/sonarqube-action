@@ -12,12 +12,12 @@ else
 fi
 
 if [[ -f "${INPUT_PROJECTBASEDIR%/}/pom.xml" ]]; then
-  echo "::error file=${INPUT_PROJECTBASEDIR%/}pom.xml::Maven project detected. You should run the goal 'org.sonarsource.scanner.maven:sonar' during build rather than using this GitHub Action."
+  echo "::error file=${INPUT_PROJECTBASEDIR%/}/pom.xml::Maven project detected. You should run the goal 'org.sonarsource.scanner.maven:sonar' during build rather than using this GitHub Action."
   exit 1
 fi
 
 if [[ -f "${INPUT_PROJECTBASEDIR%/}/build.gradle" ]]; then
-  echo "::error file=${INPUT_PROJECTBASEDIR%/}build.gradle::Gradle project detected. You should use the SonarQube plugin for Gradle during build rather than using this GitHub Action."
+  echo "::error file=${INPUT_PROJECTBASEDIR%/}/build.gradle::Gradle project detected. You should use the SonarQube plugin for Gradle during build rather than using this GitHub Action."
   exit 1
 fi
 
